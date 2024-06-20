@@ -1,0 +1,27 @@
+version: '3.3' # version of compose format
+
+services:
+  receiver-service:
+    build: ./receiver # path is relative to docker-compose.yml location
+    hostname: receiver-service
+    ports:
+      - 5050:5050 # host:container
+    networks:
+      sample:
+        aliases:
+          - receiver-service
+
+  sender-service:
+    build: ./sender
+    hostname: sender-service
+    ports:
+      - 5051:5051 # host:container
+    depends_on:
+      - receiver-service
+    networks:
+      sample:
+        aliases:
+          - sender-service
+
+networks:
+  sample:

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Page</title>
+  </head>
+  <body>
+    <h3>Get message from (sender-service)</h3>
+      {% for category, message in get_flashed_messages(with_categories=true) %}
+      <ul>
+          <li>
+          <div style="color: {{ category }}">{{ message }}</div>
+          </li>
+      </ul>
+    {% endfor %}
+      <form action="" method="POST">
+      <input type="submit" name="submit" value="Reset">
+      <input type="submit" name="submit" value="What time is it ?">
+      <input type="submit" name="submit" value="Where am I ?">
+      </form>
+ </body>
+</html>

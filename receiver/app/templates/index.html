@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main</title>
+  </head>
+  <body>
+    <h3>Test if sender service is up and running</h3>
+    <form action="" method="POST">
+      <br />
+      <input type="submit" name="submit" value="Test" />
+    </form>
+
+    {% for category, message in get_flashed_messages(with_categories=true) %}
+    <ul>
+      <li>
+        <div style="color: {{ category }}">{{ message }}</div>
+      </li>
+      <form action="" method="POST">
+        <br />
+        <input type="submit" name="submit" value="Reset" />
+      </form>
+    </ul>
+    {% endfor %}
+  </body>
+</html>
